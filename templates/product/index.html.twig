@@ -1,0 +1,309 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Our Products || SIM3D{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+<!-- Title Icon -->
+<link rel="icon" href="title.png" type="image/icon type">
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/bootstrap/bootstrap.min.css')}}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/themify-icons/themify-icons.css')}}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/slick/slick.css')}}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/Venobox/venobox.css')}}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/aos/aos.css')}}">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="{{asset('assets1/img/favicon.ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{asset('assets1/img/favicon.ico')}}" type="image/x-icon">
+    <!-- Favicons -->
+    <link href="{{ asset('assets1/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets1/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('assets1/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('assets1/css/style.css') }}" rel="stylesheet">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+<!-- navigation -->
+<section class="fixed-top navigation">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{path('home')}}"><img src="{{asset('assets1/img/logo.png')}}" alt="logo"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- navbar -->
+      <div class="collapse navbar-collapse text-center" id="navbar">
+
+        <ul class="navbar-nav ml-auto">
+       
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="service.php">Programs</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('product')}}">Products</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('about')}}">About Us</a>
+
+          </li>
+
+           
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('contact')}}" >Contact Us</a>
+          </li>
+          
+          <li class="nav-item">
+{% if app.user %}
+          <li class="nav-item">
+          <div class="dropdown show">
+  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img src="{{asset('assets1/img/account.png')}}" width="38" alt="logo" title="{{ app.user.username }}">
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" >User: {{ app.user.username }}</a>
+    <a class="dropdown-item" href="{{path('app_logout')}}">Log Out</a>
+  </div>
+</div>
+            </li>
+            {% else %}
+ <li class="nav-item">
+          <div class="dropdown show">
+  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Log In
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="{{path('app_login')}}">Log In</a>
+    <a class="dropdown-item" href="{{path('register')}}">Register </a>
+  </div>
+</div>
+            </li>
+
+        </ul>
+            {% endif %}
+
+        
+      </div>
+    </nav>
+  </div>
+</section>
+<!-- /navigation -->
+<!-- hero area -->
+<section class="hero-section hero" data-background="" style="background-image: url({{asset('assets1/img/hero-area/bannerbg1.png')}})">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center zindex-1">
+        <h1 class="mb-3">​We believe in a future <br>
+          where computing machines improve our lives.</h1>
+        <p class="mb-4">Together, We Make Succesful Solutions.<br>
+          </p>
+        <a href="{{path('contact')}}" class="btn btn-secondary btn-lg">Contact Us</a>
+        <!-- banner image -->
+        <img class="img-fluid w-100 banner-image" src="{{asset('assets1/img/hero-area/kk.jpg')}}" alt="banner-img">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- background shapes -->
+  <div id="scene">
+    <img class="img-fluid hero-bg-1 up-down-animation" src="{{asset('assets1/img/background-shape/feature-bg-2.png')}}" alt="">
+    <img class="img-fluid hero-bg-2 left-right-animation" src="{{asset('assets1/img/background-shape/seo-ball-1.png')}}" alt="">
+    <img class="img-fluid hero-bg-3 left-right-animation" src="{{asset('assets1/img/background-shape/seo-half-cycle.png')}}" alt="">
+    <img class="img-fluid hero-bg-4 up-down-animation" src="{{asset('assets1/img/background-shape/green-dot.png')}}" alt="">
+    <img class="img-fluid hero-bg-5 left-right-animation" src="{{asset('assets1/img/background-shape/blue-half-cycle.png')}}" alt="">
+    <img class="img-fluid hero-bg-6 up-down-animation" src="{{asset('assets1/img/background-shape/seo-ball-2.png')}}" alt="">
+    <img class="img-fluid hero-bg-7 left-right-animation" src="{{asset('assets1/img/background-shape/yellow-triangle.png')}}" alt="">
+    <img class="img-fluid hero-bg-8 up-down-animation" src="{{asset('assets1/img/background-shape/service-half-cycle.png')}}" alt="">
+    <img class="img-fluid hero-bg-9 up-down-animation" src="{{asset('assets1/img/background-shape/team-bg-triangle.png')}}" alt="">
+  </div>
+</section>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+<div class="container">
+    <div class="row">
+</div>
+</div>
+
+<!-- /hero-area -->
+        <!-- Section-->
+<section>
+  <div class="container px-4 px-lg-5 mt-5"  >
+<div class="container">
+      <div class="col-lg-12 text-center">
+
+    <h1 class="mt-3 mb-4 section-title">Products</h1>
+    </div>
+
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                
+                    <img src={{product.photo}} alt="{{ product.name }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.infos|slice(0, 35) ~ '...'  }}</p>
+                        <div class="d-flex justify-content-between align-item-center">
+                            <button class="btn btn-primary" ><a href="{{ path('app_product_crud_show_infos', {'id': product.id}) }}"><font color="white">View details</font></button></a>
+                    {% if app.user %}
+
+                <a href="{{path('add_cart',{'id': product.id})}}">    <i class="fa fa-cart-plus" style="font-size:40px;color:#33A2EF"></i></a>
+                {% endif %}
+                            <span class="h5 mt-auto">{{ product.price }} DT</span>
+                            {% if product.dispo =="in stock" %}
+                                 <div class="badge bg-success text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{product.dispo}}</div>
+{% else %}
+                                   <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{product.dispo}}</div>
+
+{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+ {{ knp_pagination_render(products) }}
+<style>
+
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+    </div>
+</div> 
+                           </div>
+                 </section>
+ <!-- footer -->
+
+
+<footer class="footer-section footer" style="background-image:  url({{asset('assets1/img/backgrounds/footerbg.png')}})">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+          <!-- logo -->
+          <a href="index.html">
+          <img class="img-fluid" src="{{asset('assets1/img/logo.png')}}" alt="logo">
+          </a>
+        </div>
+        <!-- footer menu -->
+        <nav class="col-lg-8 align-self-center mb-5">
+          <ul class="list-inline text-lg-right text-center footer-menu">
+          <li class="list-inline-item "><a href="{{path('home')}}">Home</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="service.php">Programs</a></li>
+          <li class="list-inline-item"><a href="{{path('product')}}">Products</a></li>
+          <li class="list-inline-item"><a href="{{path('about')}}">About Us</a></li>
+          <li class="list-inline-item"><a href="{{path('contact')}}">Contact Us</a></li>
+          </ul>
+        </nav>
+        <!-- footer social icon -->
+        <nav class="col-12">
+          <ul class="list-inline text-lg-right text-right social-icon">
+            <li class="list-inline-item">
+              <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a class="linkedin" href="https://www.linkedin.com/company/sim3d/"><i class="ti-linkedin"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a class="black" href="https://sim3d-engineering.com/"><i class="ti-world"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <!-- /footer -->
+  
+<!-- Template Main JS File -->
+<script src="{{asset('assets1/plugins/jQuery/jquery.min.js')}}"></script>
+<!-- Bootstrap JS -->
+<script src="{{asset('assets1/plugins/bootstrap/bootstrap.min.js')}}"></script>
+<!-- slick slider -->
+<script src="{{asset('assets1/plugins/slick/slick.min.js')}}"></script>
+<!-- venobox -->
+<script src="{{asset('assets1/plugins/Venobox/venobox.min.js')}}"></script>
+<!-- aos -->
+<script src="{{asset('assets1/plugins/aos/aos.js')}}"></script>
+<!-- Main Script -->
+<script src="{{ asset('assets1/js/script.js')}}"></script>
+  
+  </body>
+  </html>
+
+  {% endblock %}

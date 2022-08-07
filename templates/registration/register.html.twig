@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}register || SIM3D{% endblock %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets1/css/client.css')}}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Title Icon -->
+<link rel="icon" href="{{asset('assets1/title.png')}}" type="image/icon type">
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  	<link rel="icon" type="image/png" href="{{asset('assets1/img/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+<link href="{{asset('assets1/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/bootstrap/bootstrap.min.css')}}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/themify-icons/themify-icons.css')}}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/slick/slick.css')}}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/Venobox/venobox.css')}}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/aos/aos.css')}}">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Main Stylesheet -->
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="{{asset('assets1/img/favicon.ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{asset('assets1/img/favicon.ico')}}" type="image/x-icon">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- navigation -->
+<section class="fixed-top navigation">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{path('home')}}"><img src="{{asset('assets1/img/logo.png')}}" alt="logo"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- navbar -->
+      <div class="collapse navbar-collapse text-center" id="navbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('home') }}">Home</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="service.php">Programs</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('product')}}">Products</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('about')}}">About Us</a>
+
+          </li>
+
+           
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('contact')}}" >Contact Us</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div>
+</section>
+<!-- /navigation -->
+<br><br>
+
+<br><br>
+
+      <img class="mb-4" src="{{asset('assets1/img/png2.png')}}"  width="300" height="100">
+      <h1 class="h3 mb-3 font-weight-normal" align="center">Sign Up</h1>
+
+
+
+    {{ form_start(registrationForm) }}
+     <div class="row">
+     <div class="login-form bg-light mt-4 p-4">
+
+    <div class="form-group mt-3">
+        {{ form_row(registrationForm.username,{'attr': {'class': 'form-control','label': 'username'}
+        
+         } )}}
+        </div>
+        <div class="form-group mt-3">
+        {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control','label': 'Password'}
+        }) }}
+        </div>
+        <div class="form-group mt-3">
+        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control','label': 'Email'}
+        }) }}
+        </div>
+         <div class="form-group mt-3"> 
+         {{ form_row(registrationForm.CIN, {'attr': {'class': 'form-control','label': 'CIN'}
+        }) }}
+        </div>
+        <div class="form-group mt-3">
+        {{ form_row(registrationForm.agreeTerms,{'attr': {'label': ' agree Terms '}
+         } ) }}
+</div>
+        <div class="text-center">
+        <button type="submit" class="btn  btn-dark">Register</button>
+        </div>
+    {{ form_end(registrationForm) }}
+                <span>Have an account? <a href="{{path('app_login')}}">login</a>
+
+ </body>
+</html>
+{% endblock %}

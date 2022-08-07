@@ -1,0 +1,56 @@
+{% extends 'base-admin.html.twig' %}
+{% block title %}Client list{% endblock %}
+{% block body %}
+    <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-info shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Clients list</h6>
+            </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                    <thead>
+    <tr>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>                
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th> 
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>    
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">CIN</th>           
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Password</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Delete</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    
+    {% for user in users %}
+    <tr>
+     <td>
+    {{user.id}} 
+    </td>
+    <td>
+    &nbsp;&nbsp;&nbsp;{{user.username}}
+    </td>
+    <td>
+     {{user.email}}
+    </td>
+    <td>
+    {{user.cin}}
+    </td>
+ <td>
+   {{user.password}}
+    </td>
+     <td><a href="{{path('admin_client_delete',{'id':user.id})}}"><i class="material-icons" style="color:red"></i></a></td>
+
+</tr>
+
+
+ {% endfor %}
+
+ </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>{% block title %} SIM3D {% endblock %}</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+    <!-- Favicons -->
+    <link href="{{ asset('assets1/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets1/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('assets1/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('assets1/css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- ======= Hero Section ======= -->
+
+<main id="main">
+
+    {% block body %}
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container">
+    <!-- footer -->
+<footer class="footer-section footer" style="background-image: url({{asset('assets1/img/backgrounds/footerbg.png')}})">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <!-- logo -->
+        <a href="index.php">
+          <img class="img-fluid" src="asset{{'(assets1/img/logo.png)'}}" alt="logo">
+        </a>
+      </div>
+      <!-- footer menu -->
+    <nav id="navbar" class="navbar nav-menu">
+        <ul class="list-inline text-lg-right text-center footer-menu">
+          <li class="list-inline-item active"><a href="{{ path('home') }}">Home</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="service.php">Programs</a></li>
+          <li class="list-inline-item"><a href="products.php">Products</a></li>
+          <li class="list-inline-item"><a href="about.php">About Us</a></li>
+          <li class="list-inline-item"><a href="{{ path('contact') }}">Contact Us</a></li>
+          <li class="list-inline-item"><a href="/{{app.user ? 'logout':'login'}}">{{app.user ? 'Logout':'Login'}}</a></li>
+
+        </ul>
+      </nav>
+      <!-- footer social icon -->
+      <nav class="col-12">
+        <ul class="list-inline text-lg-right text-center social-icon">
+          <li class="list-inline-item">
+            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="linkedin" href="https://www.linkedin.com/company/sim3d/"><i class="ti-linkedin"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="black" href="https://sim3d-engineering.com/"><i class="ti-world"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+
+
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+
+<!-- Template Main JS File -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- venobox -->
+<script src="plugins/Venobox/venobox.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- Main Script -->
+<script src="{{ asset('assets1/js/script.js') }}"></script>
+
+
+</body>
+</html>
+    {% endblock %}

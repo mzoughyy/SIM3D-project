@@ -1,0 +1,53 @@
+
+{% extends 'base-admin.html.twig' %}
+{% block title %}Product list{% endblock %}
+{% block body %}
+<style>
+        h5{text-align: right;}
+    </style>
+    <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-info shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Products list</h6>
+            </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                    <thead>
+    <tr>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>                
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>                
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">avaibility</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Consult</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Edit</th>
+        
+    </tr>
+
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><a href="{{ path('app_product_crud_show', {'id': product.id}) }}"><img src={{product.photo}} class="avatar" alt="Avatar"></a></td>
+                <td>&nbsp;&nbsp;&nbsp;{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.dispo }}</td>
+                <td>
+                 &nbsp;&nbsp;   <a href="{{ path('app_product_crud_show', {'id': product.id}) }}"><i class='fas fa-cog' style='font-size:18px; color:red'></i></a>
+                  </td>
+                    <td><a href="{{ path('app_product_crud_edit', {'id': product.id}) }}"><i class="fas fa-edit" style='font-size:18px' ></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        
+        </tbody>
+    </table>
+{{ knp_pagination_render(products) }}
+{% endblock %}

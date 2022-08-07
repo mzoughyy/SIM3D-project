@@ -1,0 +1,198 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Cart || SIM3D{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+<!-- Title Icon -->
+<link rel="icon" href="title.png" type="image/icon type">
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/bootstrap/bootstrap.min.css')}}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/themify-icons/themify-icons.css')}}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/slick/slick.css')}}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/Venobox/venobox.css')}}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{{asset('assets1/plugins/aos/aos.css')}}">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="{{asset('assets1/img/favicon.ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{asset('assets1/img/favicon.ico')}}" type="image/x-icon">
+    <!-- Favicons -->
+    <link href="{{ asset('assets1/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets1/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('assets1/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('assets1/css/style.css') }}" rel="stylesheet">
+
+</head>
+
+
+<body>
+<!-- navigation -->
+<section class="fixed-top navigation">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{path('home')}}"><img src="{{asset('assets1/img/logo.png')}}" alt="logo"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- navbar -->
+      <div class="collapse navbar-collapse text-center" id="navbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('home') }}">Home</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="service.php">Programs</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('product')}}">Products</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('about')}}">About Us</a>
+
+          </li>
+
+           
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('contact')}}" >Contact Us</a>
+          </li>
+          
+          <li class="nav-item">
+{% if app.user %}
+          <li class="nav-item">
+          <div class="dropdown show">
+  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img src="{{asset('assets1/img/account.png')}}" width="38" alt="logo" title="{{ app.user.username }}">
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" >User: {{ app.user.username }}</a>
+    <a class="dropdown-item" href="{{path('app_logout')}}">Log Out</a>
+  </div>
+</div>
+            </li>
+            {% else %}
+ <li class="nav-item">
+          <div class="dropdown show">
+  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Log In
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="{{path('app_login')}}">Log In</a>
+    <a class="dropdown-item" href="{{path('register')}}">Register </a>
+  </div>
+</div>
+            </li>
+
+        </ul>
+            {% endif %}
+
+        
+      </div>
+    </nav>
+  </div>
+</section>
+<!-- /navigation -->
+</br></br></br>
+<h1 align="center">My Cart</h1>
+</br>
+{% if items|length > 0 %}
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+<table class="table table-striped">
+<thead>
+<tr>
+    <th scope="col"></th>
+    <th scope="col">product</th>
+    <th scope="col">price</th>
+    <th scope="col">Quantité</th>
+    <th scope="col">Total</th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+    <tr>
+    <td><img src={{item.product.photo}} class="avatar" alt="Avatar" width="50"></td>
+    <td>{{item.product.name}}</td>
+    <td>{{ item.product.price }}</td>
+    <td>{{ item.product.quantity }} </td>
+    <td>{{ item.product.price * item.quantity }}</td>
+<td ><a href="{{path('delete_cart',{'id':item.product.id}) }}"><button class="btn btn-sm btn-danger" style="font-size:10px"><i class="fa fa-trash" style="font-size:15px"></i></button></a></td>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+    
+        <td colspan="4" >Total : </td>
+        <td>{{ total }}</td>
+        <td></td>
+        </tr>
+        </tfoot>
+    </table>
+    <div class="card-body border-top">
+        <a href="#" class="btn btn-info float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+        <a href="{{path('product')}}" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
+    </div> 
+    <div class="alert alert-success mt-3">
+        <p class="icontext"><i class="icon text-success fa fa-truck"></i>  Delivery within 1-2 weeks</p>
+    </div> 
+    </div> 
+    </div>
+        </div>
+    </div>
+    </div>
+
+    {% else %}
+    <p>empty</p>
+{% endif %}
+  <!-- /footer -->
+  
+<!-- Template Main JS File -->
+<script src="{{asset('assets1/plugins/jQuery/jquery.min.js')}}"></script>
+<!-- Bootstrap JS -->
+<script src="{{asset('assets1/plugins/bootstrap/bootstrap.min.js')}}"></script>
+<!-- slick slider -->
+<script src="{{asset('assets1/plugins/slick/slick.min.js')}}"></script>
+<!-- venobox -->
+<script src="{{asset('assets1/plugins/Venobox/venobox.min.js')}}"></script>
+<!-- aos -->
+<script src="{{asset('assets1/plugins/aos/aos.js')}}"></script>
+<!-- Main Script -->
+<script src="{{ asset('assets1/js/script.js')}}"></script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    </body>
+    </html>
+{% endblock %}

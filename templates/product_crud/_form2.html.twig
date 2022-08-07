@@ -1,0 +1,89 @@
+
+
+<style>
+
+.form-control{
+     border: 2px solid #8D8992;
+     border-radius: 4px;
+}
+.form-control:focus { 
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+ }
+</style>
+    <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-info shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">update product</h6>
+            </div>
+        </div>
+
+
+        <div class="row contact-bg p-5 rounded mb-5">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+          
+ 
+                    {{ form_start(form) }}
+                    <div class="row">
+                       
+                    <div class="form-group mt-3">
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Product name', 'required':true}}) }}
+                            {{ form_errors(form.name) }}
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        {{ form_label(form.price) }}
+                        {{ form_widget(form.price, {'attr': {'class': 'form-control', 'placeholder': 'Product price', 'required':true}}) }}
+                        {{ form_errors(form.price) }}
+                    </div>
+                     <div class="form-group mt-3">
+
+                        {{ form_label(form.RAM) }}
+                        {{ form_widget(form.RAM, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'RAM', 'required':false}}) }}
+                        {{ form_errors(form.RAM) }}
+                    </div>
+                     <div class="form-group mt-3">
+
+                        {{ form_label(form.CPU_SP) }}
+                        {{ form_widget(form.CPU_SP, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'CPU Speed', 'required':false}}) }}
+                        {{ form_errors(form.CPU_SP) }}
+                    </div>
+                     <div class="form-group mt-3">
+
+                        {{ form_label(form.OP_V) }}
+                        {{ form_widget(form.OP_V, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'Operating Voltage', 'required':false}}) }}
+                        {{ form_errors(form.OP_V) }}
+                    </div>
+                     <div class="form-group mt-3">
+
+                        {{ form_label(form.Pins) }}
+                        {{ form_widget(form.Pins, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'Product Pins', 'required':false}}) }}
+                        {{ form_errors(form.Pins) }}
+                    </div>
+                   
+                    <div class="form-group mt-3">
+
+                        {{ form_label(form.dispo) }}
+                        {{ form_widget(form.dispo, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'Product Avaibility', 'required':true}}) }}
+                        {{ form_errors(form.dispo) }}
+                    </div>
+                          <div class="form-group mt-3">
+
+                        {{ form_label(form.photo) }}
+                        {{ form_widget(form.photo, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'Product photo', 'required':true}}) }}
+                        {{ form_errors(form.photo) }}
+                    </div>
+                    <div class="form-group mt-3">
+
+                        {{ form_label(form.infos) }}
+                        {{ form_widget(form.infos, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'Product infos', 'required':false}}) }}
+                        {{ form_errors(form.infos) }}
+                    </div>
+                    </br>
+    <button class="btn btn-info">{{ button_label|default('Save') }}</button>
+
+                    {{ form_end(form) }}
+                </div>
+
