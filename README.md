@@ -1,2 +1,2 @@
-# projet1
-projet symfony pour les étudiants 2ème année DSI et 3ème année MDW
+#project  for a startup "SIM3D"
+#ecommerce and marketing website
